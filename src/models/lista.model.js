@@ -6,12 +6,21 @@ const listasSchema = new Schema(
       type: String,
       unique: true,
       require: true,
-    },
-    TemperaturaActual: Number,
-    HumedadActual: Number, 
-    nivelLuminosidad: Number,
-    objetoDetectado: String,
-    DistanciaObjeto: Number,
+      },
+      temperatura: {
+        type: Number,
+        required: true,
+      },
+      humedad: {
+        type: Number,
+        required: true,
+      },
+      objetoDetectado: {
+        type: String,
+      },
+      DistanciaObjeto: {
+        type: Number,
+      },
   },
   {
     versionKey: false,
