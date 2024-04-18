@@ -7,6 +7,6 @@ router.get('/', getAll);
 router.get('/:code', getOne);
 router.post('/', insertLista);
 router.put('/:code', updateLista);
-router.delete('/delete/:code', deleteLista);
+router.delete('/:code', deleteLista); 
 
 export default router;

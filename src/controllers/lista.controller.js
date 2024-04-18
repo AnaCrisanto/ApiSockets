@@ -1,5 +1,5 @@
 import { model } from 'mongoose';
-import ListaDAO from '../dao/lista.dao.js'
+import ListaDAO from '../dao/lista.dao.js';
 
 export const getAll = (req, res) => {
     ListaDAO.getAll()
@@ -7,7 +7,7 @@ export const getAll = (req, res) => {
             res.json(listas);
         })
         .catch((err) => {
-            res.json(err);
+            res.status(500).json({ status: "Error", message: err.message });
         });
 };
 
@@ -15,57 +15,44 @@ export const getOne = (req, res) => {
     ListaDAO.getOne(req.params.code)
         .then((lista) => {
             if (lista != null)
-            res.json(lista);
+                res.json(lista);
             else
-                res.json({ status: "List not found" })
+                res.status(404).json({ status: "List not found" });
         })
-        .catch(err => res.json({ status: "Server unaivalible",message:err }))
-}
+        .catch(err => res.status(500).json({ status: "Server unavailable", message: err.message }));
+};
 
-//Nos muestra todos los elementos disponibles en la BD
 export const insertLista = (req, res) => {
     ListaDAO.insertLista(req.body)
         .then(result => {
             if (result)
-            res.json(result);
+                res.status(201).json(result);
         })
-        .catch(err => res.json({ status: "Servidor no disponible" }));
+        .catch(err => res.status(500).json({ status: "Server unavailable", message: err.message }));
 };
-
 
 export const updateLista = (req, res) => {
     ListaDAO.updateLista(req.params.code, req.body)
-
         .then(lista => {
             if (lista)
-            res.json(lista);
-                else
-                res.json({
-                    status: "server unavailable"
-                });
+                res.json(lista);
+            else
+                res.status(404).json({ status: "List not found" });
         })
         .catch(err => {
-            res.json({
-                status: "server unavailable"
-            });
-        })
+            res.status(500).json({ status: "Server unavailable", message: err.message });
+        });
 };
-
 
 export const deleteLista = (req, res) => {
     ListaDAO.deleteLista(req.params.code)
-
         .then(lista => {
             if (lista)
-            res.json(lista);
-                else
-                res.json({
-                    status: "server unavailable"
-                });
+                res.json(lista);
+            else
+                res.status(404).json({ status: "List not found" });
         })
         .catch(err => {
-            res.json({
-                status: "server unavailable"
-            });
-        })
+            res.status(500).json({ status: "Server unavailable", message: err.message });
+        });
 };

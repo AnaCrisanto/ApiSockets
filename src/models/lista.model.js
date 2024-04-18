@@ -5,22 +5,22 @@ const listasSchema = new Schema(
     code: {
       type: String,
       unique: true,
-      require: true,
-      },
-      temperatura: {
-        type: Number,
-        required: true,
-      },
-      humedad: {
-        type: Number,
-        required: true,
-      },
-      objetoDetectado: {
-        type: String,
-      },
-      DistanciaObjeto: {
-        type: Number,
-      },
+      required: true,
+    },
+    temperatura: {
+      type: Number,
+      required: true,
+    },
+    humedad: {
+      type: Number,
+      required: true,
+    },
+    objetoDetectado: {
+      type: String,
+    },
+    DistanciaObjeto: {
+      type: Number,
+    },
   },
   {
     versionKey: false,
