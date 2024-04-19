@@ -1,12 +1,12 @@
 import { Router } from "express";
-import { getAll, insertLista, getOne, updateLista, deleteLista } from '../controllers/lista.controller.js';
+import { getAll, insertList, getOne, updateList, deleteList } from '../controllers/lista.controller.js';
 
 const router = Router();
 
 router.get('/', getAll);
-router.get('/:code', getOne);
-router.post('/', insertLista);
-router.put('/:code', updateLista);
-router.delete('/:code', deleteLista); 
+router.get('/:_id', getOne);
+router.post('/', insertList);
+router.put('/:_id', updateList);
+router.delete('/:_id', deleteList); 
 
 export default router;

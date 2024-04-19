@@ -2,11 +2,6 @@ import { Schema, model } from "mongoose";
 
 const listasSchema = new Schema(
   {
-    code: {
-      type: String,
-      unique: true,
-      required: true,
-    },
     temperatura: {
       type: Number,
       required: true,
@@ -15,10 +10,7 @@ const listasSchema = new Schema(
       type: Number,
       required: true,
     },
-    objetoDetectado: {
-      type: String,
-    },
-    DistanciaObjeto: {
+    distanciaObjeto: {
       type: Number,
     },
   },
@@ -28,4 +20,4 @@ const listasSchema = new Schema(
   }
 );
 
-export default model("lista", listasSchema);
+export default model("ListaComponentes", listasSchema);

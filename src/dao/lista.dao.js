@@ -4,46 +4,46 @@ const ListaDAO = {};
 
 ListaDAO.getAll = async () => {
     try {
-        const listas = await Lista.find();
-        return listas;
+        const lists = await Lista.find();
+        return lists;
     } catch (err) {
         throw err;
     }
 };
 
-ListaDAO.getOne = async (cd) => {
+ListaDAO.getOne = async (_id) => {
     try {
-        const lista = await Lista.findOne({ code: cd });
-        return lista;
+        const list = await Lista.findOne({ _id: _id });
+        return list;
     } catch (err) {
         throw err;
     }
 };
 
-ListaDAO.insertLista = async (lista) => {
+ListaDAO.insertList = async (list) => {
     try {
-        const listaSaved = new Lista(lista);
-        await listaSaved.save();
+        const listSaved = new Lista(list);
+        await listSaved.save();
         return true;
     } catch (err) {
         throw err;
     }
 };
 
-ListaDAO.updateLista = async (cd, lista) => {
+ListaDAO.updateList = async (_id, list) => {
     try {
-        const listaUpdated = await Lista.findOneAndUpdate({ code: cd }, lista, { new: true });
-        if (listaUpdated) return true;
+        const listUpdated = await Lista.findOneAndUpdate({ _id: _id }, list, { new: true });
+        if (listUpdated) return true;
         else return false;
     } catch (err) {
         throw err;
     }
 };
 
-ListaDAO.deleteLista = async (cd) => {
+ListaDAO.deleteList = async (_id) => {
     try {
-        const listaDeleted = await Lista.findOneAndDelete({ code: cd });
-        if (listaDeleted) return true;
+        const listDeleted = await Lista.findOneAndDelete({ _id: _id });
+        if (listDeleted) return true;
         else return false;
     } catch (err) {
         throw err;
