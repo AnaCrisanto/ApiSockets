@@ -12,6 +12,11 @@ const listasSchema = new Schema(
     },
     distanciaObjeto: {
       type: Number,
+      required: true,
+    },
+    intensidadLed: {
+      type: Number,
+      required: true,
     },
   },
   {

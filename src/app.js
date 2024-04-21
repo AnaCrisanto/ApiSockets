@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import { config } from "dotenv";
-import listasRouter from '../src/routes/lista.route.js'
+import listaRouter from '../src/routes/lista.route.js'
 
 config()
 
@@ -13,6 +13,6 @@ app.use(morgan('dev'));
 app.use(express.static('src'));
 
 
-app.use(listasRouter);
+app.use(listaRouter);
 
 export default app;
