@@ -22,6 +22,7 @@ const listasSchema = new Schema(
   {
     versionKey: false,
     timestamps: true,
+    collection: apiSockets
   }
 );
 
