@@ -15,7 +15,7 @@ const listasSchema = new Schema(
       required: true,
     },
     Led: {
-      type: Number,
+      type: Boolean,
       required: true,
     },
   },
