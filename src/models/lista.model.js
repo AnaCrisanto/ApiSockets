@@ -14,7 +14,7 @@ const listasSchema = new Schema(
       type: Number,
       required: true,
     },
-    intensidadLed: {
+    Led: {
       type: Number,
       required: true,
     },
